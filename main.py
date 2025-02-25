@@ -1,6 +1,7 @@
 from typing import Union
-
 from fastapi import FastAPI
+import random
+import time
 
 app = FastAPI()
 
@@ -16,6 +17,7 @@ def read_root():
   
     return {"Hello": result}
 
+@app.get("/two_domensional_array")
 def two_dimensional_array():
     a = [
         [1, 2, 3],
@@ -58,6 +60,27 @@ def add_large_arrays():
     
     # 수행 시간 리턴
     return {"execution_time": end_time - start_time}
+
+@app.get("/add-large-arrays_c")
+def add_large_arrays_c():
+    N = 10**6  # 100만 개 요소
+
+    # 랜덤한 1차원 배열 2개 생성
+    a = random.choices(range(101), k = 10**6)
+    b = random.choices(range(101), k = 10**6)
+    # 실행 시간 측정 시작
+    add_start_time = time.time()
+    
+    # 요소별 덧셈
+    result = []
+    for x, y in zip(a, b):
+        result.append(x + y)
+     
+    # 실행 시간 측정 종료
+    add_end_time = time.time()
+    
+    # 수행 시간 리턴
+    return {"execution_time": add_end_time - add_start_time}
 
 @app.get("/items/{item_id}")
 def read_item(item_id: int, q: Union[str, None] = None):
