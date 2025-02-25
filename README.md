@@ -89,3 +89,7 @@ https://fastapi.tiangolo.com
 $ fastapi dev main.py
 ```
 
+## PDM to requirements.txt
+```bash
+$ pdm export -o requirements.txt --without-hashes
+```
