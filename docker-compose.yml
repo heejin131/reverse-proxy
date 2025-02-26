@@ -9,7 +9,13 @@ services:
     volumes:
       - ./ngrinder-controller:/opt/ngrinder-controller
 
-  agent:
+  agent1:
+    image: ngrinder/agent
+    restart: always
+    links:
+      - controller
+
+  agent2:
     image: ngrinder/agent
     restart: always
     links:

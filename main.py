@@ -37,7 +37,7 @@ def two_dimensional_array():
 
 @app.get("/add-large-arrays")
 def add_large_arrays():
-    N = 10**6  # 100만 개 요소
+    N = 10**4  # 100만 개 요소
     array_creation_time, addition_time = add_arrays(N, gen_r_array_randint)
     return {
         "array_creation_time": array_creation_time,
@@ -51,7 +51,7 @@ def gen_r_array_randint(N):
 
 @app.get("/add-large-arrays-choices")
 def add_large_arrays_choices():
-    N = 10**6  # 100만 개 요소
+    N = 10**4  # 100만 개 요소
     array_creation_time, addition_time = add_arrays(N, gen_r_array_choices)
     return {
         "array_creation_time": array_creation_time,
