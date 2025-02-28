@@ -1,10 +1,12 @@
 from typing import Union
 from fastapi import FastAPI
 import random
+import numpy as np
 import time
-
+import matplotlib.pyplot as plt
 app = FastAPI()
 
+N = 10**4
 
 @app.get("/")
 def read_root():
@@ -37,8 +39,23 @@ def two_dimensional_array():
 
 @app.get("/add-large-arrays")
 def add_large_arrays():
-    N = 10**4  # 100만 개 요소
-    array_creation_time, addition_time = add_arrays(N, gen_r_array_randint)
+    array_creation_time, addition_time = add_arrays(N, gen_r_array_randint, plus_py)
+    return {
+        "array_creation_time": array_creation_time,
+        "addition_time": addition_time
+        }
+    
+@app.get("/add-large-arrays-choices")
+def add_large_arrays_choices():
+    array_creation_time, addition_time = add_arrays(N, gen_r_array_choices, plus_py)
+    return {
+        "array_creation_time": array_creation_time,
+        "addition_time": addition_time
+        }
+    
+@app.get("/add-large-arrays-numpy")
+def add_large_arrays_numpy():
+    array_creation_time, addition_time = add_arrays(N, gen_r_array_numpy, plus_numpy)
     return {
         "array_creation_time": array_creation_time,
         "addition_time": addition_time
@@ -49,21 +66,26 @@ def gen_r_array_randint(N):
     b = [random.randint(0, 100) for _ in range(N)]
     return a,b
 
-@app.get("/add-large-arrays-choices")
-def add_large_arrays_choices():
-    N = 10**4  # 100만 개 요소
-    array_creation_time, addition_time = add_arrays(N, gen_r_array_choices)
-    return {
-        "array_creation_time": array_creation_time,
-        "addition_time": addition_time
-        }
-
 def gen_r_array_choices(N):
     a = random.choices(range(101), k=N)
     b = random.choices(range(101), k=N)
     return a,b
 
-def add_arrays(N, fun):
+def gen_r_array_numpy(N):
+    a = np.random.randint(1, 101, size=N)  # 1 이상 100 이하의 정수
+    b = np.random.randint(1, 101, size=N)
+    return a,b
+
+def plus_py(a, b):
+    result = []
+    for x, y in zip(a, b):
+        result.append(x + y)
+    return result
+
+def plus_numpy(a, b):
+    return a + b
+
+def add_arrays(N, fun, fun_plus):
     # 랜덤한 1차원 배열 2개 생성
     start_creation_time = time.time()
     a, b = fun(N)
@@ -72,9 +94,7 @@ def add_arrays(N, fun):
     # 실행 시간 측정 시작
     add_start_time = time.time()
     # 요소별 덧셈
-    result = []
-    for x, y in zip(a, b):
-        result.append(x + y)
+    result = fun_plus(a, b)
      
     # 실행 시간 측정 종료
     add_end_time = time.time()
