@@ -1,12 +1,29 @@
 #!/bin/bash
 
+# 저장할 디렉토리 지정
+OUTPUT_DIR="./note"
+
+# 파일명 자동 증가 함수
+get_next_filename() {
+    local base_name="$OUTPUT_DIR/docker_stats"
+    local extension=".csv"
+    local i=1
+
+    while [[ -f "${base_name}_${i}${extension}" ]]; do
+        ((i++))
+    done
+
+    echo "${base_name}_${i}${extension}"
+}
+
 # 출력 파일 지정
-OUTPUT_FILE="docker_stats.csv"
+OUTPUT_FILE=$(get_next_filename)
 
 # 파일이 처음 생성될 때 헤더 추가
-if [ ! -f "$OUTPUT_FILE" ]; then
-    echo "Timestamp,Container,Name,ID,CPUPerc,MemUsage,MemPerc,NetIO,BlockIO,PIDs" > "$OUTPUT_FILE"
-fi
+echo "Timestamp,Container,Name,ID,CPUPerc,MemUsage,MemPerc,NetIO,BlockIO,PIDs" > "$OUTPUT_FILE"
+# if [ ! -f "$OUTPUT_FILE" ]; then
+#     echo "Timestamp,Container,Name,ID,CPUPerc,MemUsage,MemPerc,NetIO,BlockIO,PIDs" > "$OUTPUT_FILE"
+# fi
 
 # 무한 루프 실행
 while true; do
@@ -14,7 +31,7 @@ while true; do
     TIMESTAMP=$(date +%s)
 
     # docker stats 명령어 실행 및 JSON 파싱
-    sudo docker stats --no-stream --format "{{ json . }}" | while read -r line; do
+    sudo docker compose stats --no-stream --format "{{ json . }}" | while read -r line; do
         # JSON에서 필요한 필드 추출 (jq 필요, 설치 필요 시: sudo apt-get install jq)
         CONTAINER=$(echo "$line" | jq -r '.Container')
         NAME=$(echo "$line" | jq -r '.Name')

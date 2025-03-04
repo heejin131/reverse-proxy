@@ -6,7 +6,7 @@ import time
 import matplotlib.pyplot as plt
 app = FastAPI()
 
-N = 10**4
+N = 10**5
 
 @app.get("/")
 def read_root():

@@ -30,7 +30,7 @@ exceptiongroup==1.2.2; python_version < "3.11"
 executing==2.2.0
 fastapi-cli[standard]==0.0.7
 fastapi[standard]==0.115.8
-fastjsonschema==2.21.1
+fastjsonschema==2.21.1  
 fonttools==4.56.0
 fqdn==1.5.1
 h11==0.14.0
