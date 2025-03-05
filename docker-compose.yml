@@ -33,26 +33,26 @@ services:
     expose:
        - "80"
     environment:
-      - VIRTUAL_HOST=172.17.0.1,localhost,127.0.0.1
+      - VIRTUAL_HOST=172.17.0.1,localhost,127.0.0.1,172.19.0.4
       - VIRTUAL_PORT=80
     volumes:
       - ./main.py:/code/main.py
     deploy:
       resources:
         limits:
-          cpus: "3.0"
-          memory: "1000M"
+          cpus: "2.0"
+          memory: "800M"
 
-  cache:
-    image: nginx
-    ports:
-      - "8083:80"
-    volumes:
-      - ./conf/cache/default.conf:/etc/nginx/conf.d/default.conf:ro
-    depends_on:
-      - lb
-    deploy:
-      resources:
-        limits:
-          cpus: "1.05"
-          memory: "20M"
+  # cache:
+  #   image: nginx
+  #   ports:
+  #     - "8083:80"
+  #   volumes:
+  #     - ./conf/cache/default.conf:/etc/nginx/conf.d/default.conf:ro
+  #   depends_on:
+  #     - lb
+  #   deploy:
+  #     resources:
+  #       limits:
+  #         cpus: "1.05"
+  #         memory: "20M"
