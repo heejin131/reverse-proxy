@@ -40,8 +40,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: "2.0"
-          memory: "800M"
+          cpus: "3.0"
+          memory: "1000M"
 
   cache:
     image: nginx
