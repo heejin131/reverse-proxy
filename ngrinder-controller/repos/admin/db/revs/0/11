@@ -1,0 +1,39 @@
+id: 0-10.0.r11/0
+type: file
+pred: 0-10.0.r10/913
+count: 1
+text: 10 0 900 6324 204454d2b453468debc617c1cbd63bfb b93295f648a7b612c6905d37a2b6de49c00afe81 10-a/_1
+cpath: /docker_stats.csv
+copyroot: 0 /
+
+PLAIN
+K 14
+.gitconfig.yml
+V 17
+file 0-1.0.r1/346
+K 9
+127.0.0.1
+V 17
+dir 0-8.0.r8/1183
+K 10
+172.17.0.1
+V 16
+dir 0-2.0.r9/465
+K 16
+docker_stats.csv
+V 17
+file 0-10.0.r11/0
+END
+ENDREP
+id: 0.0.r11/380
+type: dir
+pred: 0.0.r10/1275
+count: 11
+text: 11 200 167 167 fe23fbeeb8f342273fb1139a863be019
+cpath: /
+copyroot: 0 /
+
+0-10.0.t10-a modify-file true false /docker_stats.csv
+
+
+380 513

@@ -1,0 +1,38 @@
+2025-03-05 03:41:38,890 INFO  Setting of nGrinder local DNS successfully
+2025-03-05 03:41:38,891 INFO  The Grinder version 3.9.1
+2025-03-05 03:41:38,892 INFO  OpenJDK Runtime Environment 11.0.22+7-LTS: OpenJDK 64-Bit Server VM (11.0.22+7-LTS, mixed mode) on Linux amd64 5.15.167.4-microsoft-standard-WSL2
+2025-03-05 03:41:38,900 INFO  time zone is UTC (+0000)
+2025-03-05 03:41:38,946 INFO  worker process 0 of agent number 0
+2025-03-05 03:41:38,952 INFO  Instrumentation agents: byte code transforming instrumenter for Java
+2025-03-05 03:41:39,744 INFO  registered plug-in net.grinder.plugin.http.HTTPPlugin
+2025-03-05 03:41:39,778 INFO  before process.
+2025-03-05 03:41:39,779 INFO  Running "TestRunner.groovy" using GroovyScriptEngine running with groovy version: 3.0.5
+2025-03-05 03:41:39,831 INFO  before thread.
+2025-03-05 03:41:39,831 INFO  starting, will do 1 run
+2025-03-05 03:41:39,831 INFO  Start time is 1741146099831 ms since Epoch
+2025-03-05 03:41:39,840 INFO  before. init headers and cookies
+2025-03-05 03:41:39,842 INFO  sleeping for 1032 ms
+2025-03-05 03:41:40,916 INFO  http://172.17.0.1:8949/add-large-arrays-numpy -> 200 OK, 83 bytes
+2025-03-05 03:41:40,927 INFO  finished 1 run
+2025-03-05 03:41:40,928 INFO  elapsed time is 1096 ms
+2025-03-05 03:41:40,928 INFO  Final statistics for this process:
+2025-03-05 03:41:40,931 INFO  
+             Tests        Errors       Mean Test    Test Time    TPS          Mean         Response     Response     Mean time to Mean time to Mean time to 
+                                       Time (ms)    Standard                  response     bytes per    errors       resolve host establish    first byte   
+                                                    Deviation                 length       second                                 connection                
+                                                    (ms)                                                                                                    
+
+Test 1       1            0            1086.00      0.00         0.91         83.00        75.73        0            0.00         14.00        27.00         "172.17.0.1"
+
+Totals       1            0            1086.00      0.00         0.91         83.00        75.73        0            0.00         14.00        27.00        
+
+  Tests resulting in error only contribute to the Errors column.          
+  Statistics for individual tests can be found in the data file, including
+  (possibly incomplete) statistics for erroneous tests. Composite tests   
+  are marked with () and not included in the totals.                      
+
+
+
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+2025-03-05 03:41:39,781 INFO  validation-0: Starting threads
+2025-03-05 03:41:40,931 INFO  validation-0: Finished

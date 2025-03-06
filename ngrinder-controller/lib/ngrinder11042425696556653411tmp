@@ -1,0 +1,3 @@
+#Properties file for The Grinder
+#Wed Mar 05 07:11:51 UTC 2025
+grinder.console.scriptDistributionDirectory=/opt/ngrinder-controller/perftest/0_999/840/dist
