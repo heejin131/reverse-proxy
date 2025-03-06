@@ -16,6 +16,13 @@ server {
           proxy_pass http://localhost:8002/;
         }
 
+        location /blog
+        {
+	# proxy_pass http://localhost:8003/;
+          alias /var/www/blog/;
+	  index index.html;
+	  autoindex on;
+  	}
 
 }
 

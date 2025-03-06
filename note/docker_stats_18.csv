@@ -1,0 +1,26 @@
+Timestamp,Container,Name,ID,CPUPerc,MemUsage,MemPerc,NetIO,BlockIO,PIDs
+1741073528,bcc60379e5da,reverse-proxy-cache-1,bcc60379e5da,0.00%,"15.27MiB / 20MiB",76.33%,"263MB / 246MB","0B / 0B",18
+1741073528,41ed85c44298,reverse-proxy-lb-1,41ed85c44298,0.10%,"99.89MiB / 15.48GiB",0.63%,"4.13MB / 5.15MB","0B / 0B",39
+1741073528,4874efbe8ea1,reverse-proxy-agent-1,4874efbe8ea1,1469.14%,"1.453GiB / 15.48GiB",9.39%,"352MB / 348MB","0B / 0B",446
+1741073528,0b38c8e0622b,reverse-proxy-controller-1,0b38c8e0622b,1.94%,"814.2MiB / 15.48GiB",5.14%,"20.6MB / 91.9MB","0B / 0B",250
+1741073528,ae648a8a89da,reverse-proxy-api-1,ae648a8a89da,0.11%,"137.6MiB / 200MiB",68.79%,"2.76MB / 2.15MB","0B / 0B",40
+1741073541,bcc60379e5da,reverse-proxy-cache-1,bcc60379e5da,1.23%,"15.32MiB / 20MiB",76.58%,"263MB / 246MB","0B / 0B",18
+1741073541,41ed85c44298,reverse-proxy-lb-1,41ed85c44298,0.07%,"99.72MiB / 15.48GiB",0.63%,"4.13MB / 5.15MB","0B / 0B",40
+1741073541,4874efbe8ea1,reverse-proxy-agent-1,4874efbe8ea1,30.39%,"2.201GiB / 15.48GiB",14.22%,"352MB / 349MB","0B / 0B",1450
+1741073541,0b38c8e0622b,reverse-proxy-controller-1,0b38c8e0622b,0.80%,"814.7MiB / 15.48GiB",5.14%,"20.7MB / 91.9MB","0B / 0B",250
+1741073541,ae648a8a89da,reverse-proxy-api-1,ae648a8a89da,0.08%,"135.2MiB / 200MiB",67.61%,"2.76MB / 2.15MB","0B / 0B",22
+1741073553,bcc60379e5da,reverse-proxy-cache-1,bcc60379e5da,2.62%,"15.34MiB / 20MiB",76.68%,"264MB / 247MB","0B / 0B",18
+1741073553,41ed85c44298,reverse-proxy-lb-1,41ed85c44298,0.09%,"99.72MiB / 15.48GiB",0.63%,"4.14MB / 5.16MB","0B / 0B",40
+1741073553,4874efbe8ea1,reverse-proxy-agent-1,4874efbe8ea1,55.34%,"2.24GiB / 15.48GiB",14.48%,"353MB / 350MB","0B / 0B",1458
+1741073553,0b38c8e0622b,reverse-proxy-controller-1,0b38c8e0622b,0.94%,"815.4MiB / 15.48GiB",5.15%,"20.9MB / 92MB","0B / 0B",250
+1741073553,ae648a8a89da,reverse-proxy-api-1,ae648a8a89da,0.08%,"135.2MiB / 200MiB",67.59%,"2.76MB / 2.15MB","0B / 0B",21
+1741073564,bcc60379e5da,reverse-proxy-cache-1,bcc60379e5da,3.71%,"15.38MiB / 20MiB",76.88%,"266MB / 249MB","0B / 0B",18
+1741073564,41ed85c44298,reverse-proxy-lb-1,41ed85c44298,0.16%,"99.73MiB / 15.48GiB",0.63%,"4.14MB / 5.16MB","0B / 0B",40
+1741073564,4874efbe8ea1,reverse-proxy-agent-1,4874efbe8ea1,71.00%,"2.295GiB / 15.48GiB",14.83%,"355MB / 352MB","0B / 0B",1457
+1741073564,0b38c8e0622b,reverse-proxy-controller-1,0b38c8e0622b,1.21%,"816.6MiB / 15.48GiB",5.15%,"21MB / 92MB","0B / 0B",250
+1741073564,ae648a8a89da,reverse-proxy-api-1,ae648a8a89da,0.84%,"137.4MiB / 200MiB",68.70%,"2.77MB / 2.16MB","0B / 0B",23
+1741073576,bcc60379e5da,reverse-proxy-cache-1,bcc60379e5da,4.47%,"15.51MiB / 20MiB",77.56%,"269MB / 252MB","0B / 0B",18
+1741073576,41ed85c44298,reverse-proxy-lb-1,41ed85c44298,0.13%,"99.72MiB / 15.48GiB",0.63%,"4.14MB / 5.17MB","0B / 0B",40
+1741073576,4874efbe8ea1,reverse-proxy-agent-1,4874efbe8ea1,41.80%,"2.318GiB / 15.48GiB",14.97%,"357MB / 354MB","0B / 0B",1430
+1741073576,0b38c8e0622b,reverse-proxy-controller-1,0b38c8e0622b,0.75%,"817.1MiB / 15.48GiB",5.16%,"21.2MB / 92MB","0B / 0B",250
+1741073576,ae648a8a89da,reverse-proxy-api-1,ae648a8a89da,0.54%,"137.4MiB / 200MiB",68.68%,"2.77MB / 2.16MB","0B / 0B",21
