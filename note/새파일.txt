@@ -1,0 +1,14 @@
+ac=1
+accepts=117
+handled=117
+requests=123
+Reading=0
+Writing=1
+Waiting=0
+ac=1
+accepts=117
+handled=117
+requests=123
+Reading=0
+Writing=1
+Waiting=0
