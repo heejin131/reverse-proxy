@@ -4,6 +4,11 @@ import random
 import numpy as np
 import time
 import matplotlib.pyplot as plt
+import requests
+import csv
+import os
+from datetime import datetime
+
 app = FastAPI()
 
 N = 10**5
@@ -108,3 +113,69 @@ def add_arrays(N, fun, fun_plus):
 @app.get("/items/{item_id}")
 def read_item(item_id: int, q: Union[str, None] = None):
     return {"item_id": item_id, "q": q}
+
+@app.get("/nginx_status")
+def get_nginx_status():
+    res = requests.get("http://localhost:8949/nginx_status")
+    text = res.text
+
+    # ac
+    a_conn = text.split("\n")[0]
+    aa_conn = a_conn.split(": ")
+    ac = aa_conn[1].strip()
+
+    # ahr
+    b = text.split("\n")[2]
+    bb = b.split()
+    ahr = ['accepts', 'handled', 'requests']
+    ahr_values = bb 
+    ahr_result = dict(zip(ahr, ahr_values))
+
+    # rww
+    rww = text.split("\n")[3]
+    rww_parts = rww.split() 
+    rww_data = {rww_parts[i].strip(":"): rww_parts[i+1] for i in range(0, len(rww_parts), 2)}
+
+    return {
+        "ac": ac,
+        "accepts": ahr_result["accepts"], 
+        "handled": ahr_result["handled"],
+        "requests": ahr_result["requests"],
+        "Reading": rww_data["Reading"],
+        "Writing": rww_data["Writing"],
+        "Waiting": rww_data["Waiting"]
+    }
+
+def write_to_csv(filename, data):
+    fieldnames = ["timestamp", "ac", "accepts", "handled", "requests", "Reading", "Writing", "Waiting"]
+
+    if not os.path.exists(filename):
+        with open(filename, mode='w', newline='') as file:
+            writer = csv.DictWriter(file, fieldnames=fieldnames)
+            writer.writeheader()
+
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+    with open(filename, mode='a', newline='') as file:
+        writer = csv.DictWriter(file, fieldnames=fieldnames)
+        row = {
+            "timestamp": timestamp,
+            "ac": data["ac"],
+            "accepts": data["accepts"],
+            "handled": data["handled"],
+            "requests": data["requests"],
+            "Reading": data["Reading"],
+            "Writing": data["Writing"],
+            "Waiting": data["Waiting"]
+        }
+        writer.writerow(row)
+
+def main():
+    filename = "nginx_status_data.csv"
+    while True:
+        status_data = get_nginx_status()  
+        write_to_csv(filename, status_data)  
+        time.sleep(10)  
+
+if __name__ == "__main__":
+    main()
