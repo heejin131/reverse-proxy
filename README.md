@@ -93,3 +93,26 @@ $ fastapi dev main.py
 ```bash
 $ pdm export -o requirements.txt --without-hashes
 ```
+
+## Docker build & push & pull run
+```bash
+$ sudo docker build -t sawyertom/api:6.1.0 -f docker/fastapi/Dockerfile .
+$ sudo docker login
+$ sudo docker push sawyertom/api:6.1.0
+$ sudo docker run -d --name api610 -p 8610:80 sawyertom/api:6.1.0
+```
+
+## Deploy Blog (AWS)
+```bash
+$ ssh -i ~/keys/<MYKEY>.pem ubuntu@<IP> #keys파일이 있는 경로에서
+
+$ cd code 
+$ git clone http://<URL> #SSH로 할 경우, git에서 권한 부여 필요
+$ cd <REPO_NAME> 
+$ sudo apt update
+$ sudo apt install nginx
+$ cd /etc/nginx/sites-enabled
+$ sudo vi <파일이름> #https://ubuntu.com/tutorials/install-and-configure-nginx
+# vi 파일에 호스트 설정
+$ sudo service nginx restart
+```
